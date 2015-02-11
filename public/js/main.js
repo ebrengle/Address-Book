@@ -7,25 +7,32 @@
       fb           = new Firebase(FIREBASE_URL),
       userFbUrl;
 
-  if(fb..getAuth()){
+  if(fb.getAuth()){
     $('.login').remove();
     $('.app').toggleClass('hidden');
 
     userFbUrl = FIREBASE_URL + '/users/' + fb.getAuth().uid + '/data';
-    
-
+    console.log(userFbUrl);
   }  
   
-  $(function init() {
+  /*$(function init() {*/
     $('.add-new-contact').click(createContact);
 
-    $.get(FIREBASE_URL + 'friends.json', function(data) {
+    $.get(userFbUrl + 'friends.json', function(data) {
       Object.keys(data).forEach(function(uuid){
         addRowToTable(data[uuid], uuid);
       });
     });
 
-  });
+  /*});*/
+
+  $('.login button').click(function (event) {
+    var $loginForm = $(event.target.closest('form')),
+        email      = $loginForm.find('[type="email"]').val(),
+        pass       = $loginForm.find('[type="password"]').val(),
+        data       = $loginForm.find('[type="email"]').val();
+    
+  })
 
   function createContact() {
 
