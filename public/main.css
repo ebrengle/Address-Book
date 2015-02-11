@@ -1,0 +1,12 @@
+h1 {
+	text-align:center;
+	margin-top: 50px;
+}
+
+.hidden {
+	display: none;
+}
+
+img {
+	width: 150px;
+}

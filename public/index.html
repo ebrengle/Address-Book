@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>My Address Book</title>
+    <link rel="stylesheet" href="../bower_components/foundation/css/normalize.css">
+    <link rel="stylesheet" href="../bower_components/foundation/css/foundation.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    
+
+  </head>
+
+  <body>
+    <header class="row">
+      <h1>Eric's Address Book</h1>
+    </header>
+
+    <div class="login">
+      <h3>Please Login or Register</h3>
+      <form action="#">
+        <input type="email" name="email" placeholder="user@example.com" required="required"/>
+        <input type="password" name="password" placeholder="p@s$w0RD123" required="required"/>
+        <button class='Register'>Register</button>
+        <button class='Login'>Login</button>
+        <div class="error"></div>
+      </form>
+
+    </div>
+    <div class="app">
+      <section class="main-wrapper">
+
+        <button class="add-new-contact" type="button">Add New Contact</button>
+        <form class="new-contact-form hidden"></form>
+      </section>
+      <section>
+        <table>
+          <thead>
+            <th>First Name:</th>
+            <th>Last Name:</th>
+            <th>Phone:</th>
+            <th>Email:</th>
+            <th>Twitter:</th>
+            <th>Photo:</th>
+          </thead>
+          <tbody id="target">
+
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.1.2/firebase.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+
+</html>
