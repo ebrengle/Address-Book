@@ -11,12 +11,12 @@ script:
   - npm run test -- karma.conf.js
 after_script:
   - cat ./coverage/PhantomJS*/lcov.info | ./node_modules/codeclimate-test-reporter/bin/codeclimate.js
-
 after_sucess:
   - npm install -g firebase-tools
-  - if [[ '$TRAVIS_PULL_REQUEST' == "false" ]] && [[ "$TRAVIS_BRANCH" == "master" ]]; then firebase deploy; fi
-  -
+  - if [[ '$TRAVIS_PULL_REQUEST' == "false" ]] && [[ "$TRAVIS_BRANCH" == "master" ]]; then npm run deploy; fi
 env:
   global:
   - secure: GWVgYl7IBUUmrqkj8iK09vxHGOowKPxn0eYPM+HcQ7VFX2NGFLGbzFgF97j+1AFrPXKp2VJepxmJDXTeMTwjzhOzZyCOS2tAGnSMphoI1L1/LXNLGvnmxdC51VEJoaG1CthDulCigxJ1nqlwhCJ2EX4I00Sgaj7UtEErcBaj1jM=
   - secure: D62t5n8UjqxHna5MLDxuU0I4z8CevEbCQ/gSJvKLU0Kl0+lLjnE7N3I3jd7B6NqcK8DOSiQbaHF8mMC2Nb1huweQB243CcFXQbHwXMuAm5AzuFUbm+QDsu7LGnlisu0VEe4qXHssi5STv0Y0qe3XgWSDdmcre8u1qY9Z+8GaUPw=
+  - secure: fDiRYX639LA71is2SfVBwTdJaGvcGl148niJa+YOSxngRMeFsYmTz6LWKYFKObDplzInU402bSMkuNGVwYafbKLib+Lu9UulYhk8cLpsrisn3NkfjzmXT9xkBq6wf34X7u/9cpzqe+Ps7Qlt4vFuaJeTUrmaBjSi7HohVt4ghwo=
+  - secure: ClpMzrSn1xkQw+ePuwyN2W9qOunAWqBN1pFtNsezocH9wbf3pAFA+hOq4Bhh/vvobqbrewyjaLfK9p8Xg3/QVRqcbeUbZJ2c8Lp5F+nlm9bWFT+h/NCIL5GPnD4/xhNhuZI9ZTyL8fPYLpdU56KS29aOSGRDbH0uLjjRzm266TI=
