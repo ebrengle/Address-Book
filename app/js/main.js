@@ -1,9 +1,9 @@
 (function (){
   'use strict'
 
-  var $        = require('jquery'),
+  /*var $        = require('jquery'),
       _        = require('lodash'),
-      firebase = require('firebase');
+      firebase = require('firebase');*/
 
   var FIREBASE_URL = 'https://ecb-address-book.firebaseio.com/',
       $form        = $('form'),
