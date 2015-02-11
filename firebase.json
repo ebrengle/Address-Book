@@ -1,0 +1,9 @@
+{
+  "firebase": "ecb-address-book",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
