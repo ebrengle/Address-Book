@@ -1,4 +1,4 @@
-(function (){
+
   'use strict'
 
   /*var $        = require('jquery'),
@@ -11,32 +11,67 @@
       fb           = new Firebase(FIREBASE_URL),
       userFbUrl;
 
-  if(fb.getAuth()){
+
+/* Hide Login and Register Elements if Use is Logged In */ 
+  if(fb.getAuth()) {
     $('.login').remove();
     $('.app').toggleClass('hidden');
-
     userFbUrl = FIREBASE_URL + '/users/' + fb.getAuth().uid + '/data';
     console.log(userFbUrl);
-  }  
-  
-  /*$(function init() {*/
-    $('.add-new-contact').click(createContact);
 
-    $.get(userFbUrl + 'friends.json', function(data) {
+/*Get JSON call to load users contacts from Firebase*/
+
+    $.get(userFbUrl + '/.json', function(data) {
       Object.keys(data).forEach(function(uuid){
         addRowToTable(data[uuid], uuid);
       });
     });
+  }  
+  
+  /* Login after credentials are put in with Login Button */
 
-  /*});*/
+  $('body').on('click', '.login', function(evt){
+    evt.preventDefault();
 
-  $('.login button').click(function (event) {
-    var $loginForm = $(event.target.closest('form')),
-        email      = $loginForm.find('[type="email"]').val(),
-        pass       = $loginForm.find('[type="password"]').val(),
-        data       = $loginForm.find('[type="email"]').val();
+    var email = $loginForm.find('[type="email"]').val(),
+        pass  = $loginForm.find('[type="password"]').val();
+
+  /* Begin using entered credentials, beg Firebase to grant us access */
+
+    fb.authWithPassword({email: email, password: password}, function(err, auth){
+      if(err){
+        alert("Access Denied. Try Again with a different Username or Password");
+      } else {
+        location.reload(true);
+      }
+    });
+  });
+  /* End login using existing credentials function */
+
+  /* Register a new User */
+
+  $('.register').on('click', function(evt){
+    evt.preventDefault();
+
+    var email = $loginForm.find('[type="email"]').val(),
+        pass  = $loginForm.find('[type="password"]').val();
     
-  })
+    fb.createUser({email: email, password: password}, function(err, auth){
+      if(!err){
+        fb.authWithPassword({email: email, password: password}, function(err, auth){
+          location.reload(true);
+        } else {
+          alert('Sorry this user already exists');
+          location.reload(true);
+      }
+    });
+        
+  });
+
+
+  $('.add-new-contact').click(createContact);
+
+
 
   function createContact() {
 
@@ -102,4 +137,3 @@
     
   });
   
-})();  
