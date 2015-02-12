@@ -38,5 +38,5 @@
     "mocha-phantomjs": "^3.5.3",
     "node-sass": "^2.0.0-beta",
     "phantomjs": "^1.9.15"
-  },
+  }
 }
