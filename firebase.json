@@ -1,6 +1,6 @@
 {
   "firebase": "ecb-address-book",
-  "public": ".",
+  "public": "public",
   "ignore": [
     "firebase.json",
     "**/.*",

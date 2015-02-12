@@ -14,9 +14,9 @@ cd ..
 
 #Copy bower_componenets js files
 mkdir public/vendor
-cp bower_components/jquery/dist/jquery.min.js public/js/vendor
-cp bower_components/lodash/lodash.min.js public/js/vendor
-cp bower_components/firebase/firebase.js public/js/vendor
+cp bower_components/jquery/dist/jquery.min.js public/vendor
+cp bower_components/lodash/lodash.min.js public/vendor
+cp bower_components/firebase/firebase.js public/vendor
 
 ###############################
 # Jade (npm intalled locally) #
